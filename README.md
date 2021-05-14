@@ -9,14 +9,11 @@ See here to install emscripten:
 To build OpenCV with Emscripten, see here:
 - https://docs.opencv.org/master/d4/da1/tutorial_js_setup.html
 
-## Build
+## Building the package
 ```
-cd build
-emcmake cmake -DOpenCV_DIR={WASM_COMPILED_OPENCV_DIR}/build_wasm ..
-emmake make
-cd ..
+wasm-pack build --target web
 ```
-So, it will generate `build/main.js`.
+So, it will generate `pkg/rust_wasm_bindgen_test.js`.
 
 ## Run
 ```

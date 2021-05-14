@@ -5,12 +5,36 @@
     <title>Rust wasm-bindgen test</title>
   </head>
   <body>
+    <h1>Rust wasm-bindgen test</h1>
+    <canvas id="targetImage" width="256" height="425"></canvas>
+
     <script type="module">
-      import init, {greet} from "./pkg/rust_wasm_bindgen_test.js";
+        import init, {processImage, greet} from "./pkg/rust_wasm_bindgen_test.js";
+        const initToDef = async () => {
+          function sendCanvas(canvas, baseImage) {
+              const context = canvas.getContext('2d');
+              context.drawImage(baseImage, 0, 0, baseImage.width, baseImage.height);
+              const { width } = canvas;
+              const { height } = canvas;
+              const imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+              const uint8ArrData = new Uint8Array(imgData.data);
+              // pass the width and height too !!
+              //passToWasm(uint8ArrData, imgData.width, imgData.height);
+              processImage(uint8ArrData);
+          }
+
+          const baseImage = new Image();
+          baseImage.src = 'assets/lena.png';
+          baseImage.onload = () => sendCanvas(document.getElementById("targetImage"), baseImage);
+      };
+      initToDef();
+    </script>
+    <!-- <script type="module">
+      import init, {processImage, greet} from "./pkg/rust_wasm_bindgen_test.js";
       init()
         .then(() => {
           greet("WebAssembly")
         });
-      </script>
+      </script> -->
   </body>
 </html>

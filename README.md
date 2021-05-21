@@ -1,13 +1,13 @@
 # rust-wasm-bindgen-test
 
+<dl>
+  <dt>参考サイト:</dt>
+  <dd>https://developer.mozilla.org/ja/docs/WebAssembly/Rust_to_wasm</dd>
+</dl>
+
 ## Prerequisite
-You need to have emscripten, and OpenCV installed.
-
-See here to install emscripten:
-- https://emscripten.org/docs/getting_started/downloads.html
-
-To build OpenCV with Emscripten, see here:
-- https://docs.opencv.org/master/d4/da1/tutorial_js_setup.html
+1. rust, cargoがインストールされていること。
+1. 参考サイトの通り、wasm-pack がインストールされていること。
 
 ## Building the package
 ```

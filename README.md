@@ -21,4 +21,4 @@ python3 -m http.server 8002
 ```
 And if you access `http://localhost:8002/`, you will see this:
 
-![result image](result.png)
+![My experiment image](my_experiment.png)

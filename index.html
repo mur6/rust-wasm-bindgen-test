@@ -6,8 +6,8 @@
   </head>
   <body>
     <h1>Rust wasm-bindgen test</h1>
+    <!-- 
     <canvas id="targetImage" width="256" height="425"></canvas>
-
     <script type="module">
         import init, {processImage, greet} from "./pkg/rust_wasm_bindgen_test.js";
         const initToDef = async () => {
@@ -28,7 +28,7 @@
           baseImage.onload = () => sendCanvas(document.getElementById("targetImage"), baseImage);
       };
       initToDef();
-    </script>
+    </script>-->
     <!-- <script type="module">
       import init, {processImage, greet} from "./pkg/rust_wasm_bindgen_test.js";
       init()
@@ -36,5 +36,10 @@
           greet("WebAssembly")
         });
       </script> -->
+      <script type="module">
+        import init from './pkg/rust_wasm_bindgen_test.js';
+        await init();
+      </script>
+      <canvas id="canvas" height="150" width="150"></canvas>
   </body>
 </html>
